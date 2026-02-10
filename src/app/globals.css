@@ -1,26 +1,96 @@
 @import "tailwindcss";
 
+@theme {
+  /* Colors - Semantic Naming */
+  --color-primary: #FFA742;
+  --color-whatsapp: #1FAF38;
+  --color-on-whatsapp: #ffffff;
+  --color-text-heading: #000000;
+  --color-text-body: rgba(0, 0, 0, 0.70);
+  
+  --color-bg-default: #ffffff;
+  --color-bg-alt: #FFFCF9;
+  --color-bg-footer: #F9FAFB;
+  
+  --color-icon-bg: #F3F3F5;
+  --color-icon-stroke: #E5E7EB;
+
+  /* Typography */
+  --font-sans: "Inter", sans-serif;
+
+  /* Border Radius */
+  --radius-sm: 12px;
+  --radius-md: 22px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Spacing (Standardized from gaps/padding) */
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+
+  /* Shadows */
+  --shadow-card: 0px 2px 3.4px rgba(0, 0, 0, 0.10);
+  --shadow-header: 0px 0px 4px rgba(0, 0, 0, 0.25);
+
+  /* Breakpoints (Mandatory) */
+  --breakpoint-xs: 360px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
+}
+
+@utility layout-container {
+  @apply mx-auto w-full px-4 xl:px-[120px];
+  max-width: 1440px;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Runtime Variables for usage outside utility classes if needed */
+  --background: var(--color-bg-default);
+  --foreground: var(--color-text-heading);
+  
+  /* Typography Scale Variables (For consistent usage) */
+  --font-size-display: 40px;
+  --line-height-display: 40px;
+  
+  --font-size-h1: 32px;
+  --line-height-h1: 32px;
+  
+  --font-size-h2: 20px;
+  --line-height-h2: 24px;
+  
+  --font-size-h3: 18px;
+  --line-height-h3: 24px;
+  
+  --font-size-body: 16px; 
+  --line-height-body: 24px; /* Default comfortable reading */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-size-sm: 14px;
+  --line-height-sm: 20px;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-size-xs: 12px;
+  --line-height-xs: 16px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth; 
 }
